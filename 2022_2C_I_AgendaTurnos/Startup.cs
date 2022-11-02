@@ -1,4 +1,7 @@
-﻿namespace _2022_2C_I_AgendaTurnos
+﻿using _2022_2C_I_AgendaTurnos.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace _2022_2C_I_AgendaTurnos
 {
     public class Startup
     {
@@ -12,6 +15,7 @@
         }
         private static void ConfigureServices(WebApplicationBuilder builder)
         {
+            builder.Services.AddDbContext<AgendaContext>(options => options.UseInMemoryDatabase("AgendaDb"));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
         }

@@ -11,8 +11,8 @@ namespace _2022_2C_I_AgendaTurnos.Models
         [Key]
         [Required(ErrorMessage = ErrMsg.Requerido)]
         public int IdPrestacion { get; set; }
-        public Profesional Profesional { get; set; }
-        public Prestacion Prestacion { get; set; }
+        public Profesional? Profesional { get; set; }
+        public Prestacion? Prestacion { get; set; }
 
     }
 }

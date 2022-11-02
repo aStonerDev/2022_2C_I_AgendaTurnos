@@ -10,13 +10,13 @@ namespace _2022_2C_I_AgendaTurnos.Models
         public int IdPrestacion { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
         [RegularExpression(@"[a-zA-Z áéíóú]*", ErrorMessage = ErrMsg.SoloAlfabeto)]
-        public string Nombre { get; set; }
+        public string? Nombre { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
         [RegularExpression(@"[a-zA-Z áéíóú]*", ErrorMessage = ErrMsg.SoloAlfabeto)]
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
         public DateTime Duracion { get; set; }
         public double Precio { get; set; }
-        public List<ProfesionalPrestacion> ProfesionalesPrestaciones { get; set; }
-        public List<Paciente> Pacientes { get; set; }
+        public List<ProfesionalPrestacion>? ProfesionalesPrestaciones { get; set; }
+        public List<Paciente>? Pacientes { get; set; }
     }
 }

@@ -14,11 +14,11 @@ namespace _2022_2C_I_AgendaTurnos.Models
         public bool Activo { get; set; }
         public DateOnly FechaAlta { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
-        public Paciente Paciente { get; set; }
+        public Paciente? Paciente { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
-        public Profesional Profesional { get; set; }
+        public Profesional? Profesional { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
         [RegularExpression(@"[a-zA-Z áéíóú]*", ErrorMessage = ErrMsg.SoloAlfabeto)]
-        public string DescripcionCancel { get; set; }
+        public string? DescripcionCancel { get; set; }
     }
 }
