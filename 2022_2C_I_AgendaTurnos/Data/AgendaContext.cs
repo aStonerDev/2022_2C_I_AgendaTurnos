@@ -15,22 +15,11 @@ namespace _2022_2C_I_AgendaTurnos.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ProfesionalPrestacion>().HasKey(pp => new { pp.IdProfesional, pp.IdPrestacion});
-            modelBuilder.Entity<ProfesionalPrestacion>()
-                .HasOne(pp => pp.Profesional)
-                .WithMany(p => p.ProfesionalesPrestaciones)
-                .HasForeignKey(p => p.IdProfesional);
-            modelBuilder.Entity<ProfesionalPrestacion>()
-                .HasOne(pp => pp.Prestacion)
-                .WithMany(p => p.ProfesionalesPrestaciones)
-                .HasForeignKey(p => p.IdPrestacion);
         }
 
         public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Prestacion> Prestaciones { get; set; }
         public DbSet<Profesional> Profesionales { get; set; }
         public DbSet<Turno> Turnos { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<ProfesionalPrestacion> ProfesionalesPrestaciones { get; set; }
     }
 }

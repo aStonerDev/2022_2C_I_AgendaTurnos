@@ -16,7 +16,7 @@ namespace _2022_2C_I_AgendaTurnos.Models
         public string? Descripcion { get; set; }
         public DateTime Duracion { get; set; }
         public double Precio { get; set; }
-        public List<ProfesionalPrestacion>? ProfesionalesPrestaciones { get; set; }
-        public List<Paciente>? Pacientes { get; set; }
+        public List<Profesional> Profesionales { get; set; }
+        public List<Paciente> Pacientes { get; set; }
     }
 }

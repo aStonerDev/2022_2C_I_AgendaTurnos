@@ -5,12 +5,10 @@ namespace _2022_2C_I_AgendaTurnos.Models
 {
     public class Usuario
     {
-        [Key]
-        [Required(ErrorMessage = ErrMsg.Requerido)]
-        public int IdUsuario { get; set; }
+        
         [EmailAddress]
         [Required(ErrorMessage = ErrMsg.Requerido)]
-        public string? mail { get; set; }
+        public string? Èmail { get; set; }
         public DateOnly FechaAlta { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
         public string? Password { get; set; }
