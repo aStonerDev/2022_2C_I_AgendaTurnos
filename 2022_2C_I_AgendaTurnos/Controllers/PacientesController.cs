@@ -54,7 +54,7 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPaciente,Nombre,Apellido,DNI,Telefono,Direccion,FechaAlta,Email,ObraSocial")] Paciente paciente)
+        public async Task<IActionResult> Create([Bind("IdPaciente,Apellido,DNI,Telefono,Direccion,ObraSocial,Email,FechaAlta,Password,Nombre")] Paciente paciente)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPaciente,Nombre,Apellido,DNI,Telefono,Direccion,FechaAlta,Email,ObraSocial")] Paciente paciente)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPaciente,Apellido,DNI,Telefono,Direccion,ObraSocial,Email,FechaAlta,Password,Nombre")] Paciente paciente)
         {
             if (id != paciente.IdPaciente)
             {

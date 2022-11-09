@@ -7,7 +7,7 @@ namespace _2022_2C_I_AgendaTurnos.Models
     {
         [Key]
         [Required(ErrorMessage = ErrMsg.Requerido)]
-        public int PacienteId { get; set; }
+        public int IdPaciente { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
         [RegularExpression(@"[a-zA-Z áéíóú]*", ErrorMessage = ErrMsg.SoloAlfabeto)]
         public string? Apellido { get; set; }

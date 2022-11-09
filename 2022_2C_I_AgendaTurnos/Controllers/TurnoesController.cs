@@ -10,11 +10,11 @@ using _2022_2C_I_AgendaTurnos.Models;
 
 namespace _2022_2C_I_AgendaTurnos.Controllers
 {
-    public class TurnosController : Controller
+    public class TurnoesController : Controller
     {
         private readonly AgendaContext _context;
 
-        public TurnosController(AgendaContext context)
+        public TurnoesController(AgendaContext context)
         {
             _context = context;
         }
@@ -22,7 +22,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // GET: Turnoes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Turnos.ToListAsync());
+            var agendaContext = _context.Turnos.Include(t => t.Paciente).Include(t => t.Profesional);
+            return View(await agendaContext.ToListAsync());
         }
 
         // GET: Turnoes/Details/5
@@ -34,6 +35,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
             }
 
             var turno = await _context.Turnos
+                .Include(t => t.Paciente)
+                .Include(t => t.Profesional)
                 .FirstOrDefaultAsync(m => m.IdTurno == id);
             if (turno == null)
             {
@@ -46,6 +49,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // GET: Turnoes/Create
         public IActionResult Create()
         {
+            ViewData["PacienteId"] = new SelectList(_context.Pacientes, "IdPaciente", "Apellido");
+            ViewData["ProfesionalId"] = new SelectList(_context.Profesionales, "IdProfesional", "Apellido");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdTurno,Fecha,Confirmado,Activo,FechaAlta,DescripcionCancel")] Turno turno)
+        public async Task<IActionResult> Create([Bind("IdTurno,Fecha,Confirmado,Activo,FechaAlta,PacienteId,ProfesionalId,DescripcionCancel")] Turno turno)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PacienteId"] = new SelectList(_context.Pacientes, "IdPaciente", "Apellido", turno.PacienteId);
+            ViewData["ProfesionalId"] = new SelectList(_context.Profesionales, "IdProfesional", "Apellido", turno.ProfesionalId);
             return View(turno);
         }
 
@@ -78,6 +85,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
             {
                 return NotFound();
             }
+            ViewData["PacienteId"] = new SelectList(_context.Pacientes, "IdPaciente", "Apellido", turno.PacienteId);
+            ViewData["ProfesionalId"] = new SelectList(_context.Profesionales, "IdProfesional", "Apellido", turno.ProfesionalId);
             return View(turno);
         }
 
@@ -86,7 +95,7 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdTurno,Fecha,Confirmado,Activo,FechaAlta,DescripcionCancel")] Turno turno)
+        public async Task<IActionResult> Edit(int id, [Bind("IdTurno,Fecha,Confirmado,Activo,FechaAlta,PacienteId,ProfesionalId,DescripcionCancel")] Turno turno)
         {
             if (id != turno.IdTurno)
             {
@@ -113,6 +122,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PacienteId"] = new SelectList(_context.Pacientes, "IdPaciente", "Apellido", turno.PacienteId);
+            ViewData["ProfesionalId"] = new SelectList(_context.Profesionales, "IdProfesional", "Apellido", turno.ProfesionalId);
             return View(turno);
         }
 
@@ -125,6 +136,8 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
             }
 
             var turno = await _context.Turnos
+                .Include(t => t.Paciente)
+                .Include(t => t.Profesional)
                 .FirstOrDefaultAsync(m => m.IdTurno == id);
             if (turno == null)
             {

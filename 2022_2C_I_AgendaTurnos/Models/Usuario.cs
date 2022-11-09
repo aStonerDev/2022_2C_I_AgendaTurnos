@@ -8,7 +8,7 @@ namespace _2022_2C_I_AgendaTurnos.Models
         
         [EmailAddress]
         [Required(ErrorMessage = ErrMsg.Requerido)]
-        public string? Èmail { get; set; }
+        public string? Email { get; set; }
         public DateOnly FechaAlta { get; set; }
         [Required(ErrorMessage = ErrMsg.Requerido)]
         public string? Password { get; set; }

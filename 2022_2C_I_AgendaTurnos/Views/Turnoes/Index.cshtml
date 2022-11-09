@@ -25,6 +25,12 @@
                 @Html.DisplayNameFor(model => model.FechaAlta)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Paciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesional)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DescripcionCancel)
             </th>
             <th></th>
@@ -44,6 +50,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaAlta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paciente.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profesional.Apellido)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DescripcionCancel)

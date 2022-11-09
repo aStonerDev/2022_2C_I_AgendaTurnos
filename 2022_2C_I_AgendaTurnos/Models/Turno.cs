@@ -7,7 +7,7 @@ namespace _2022_2C_I_AgendaTurnos.Models
     {
         [Key]
         [Required(ErrorMessage =ErrMsg.Requerido)]
-        public int TurnoId { get; set; }
+        public int IdTurno { get; set; }
 
         public DateOnly Fecha { get; set; }
         public bool Confirmado { get; set; }

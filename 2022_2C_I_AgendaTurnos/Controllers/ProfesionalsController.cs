@@ -54,7 +54,7 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProfesional,Nombre,Apellido,Telefono,Direccion,FechaAlta,Email,Matricula")] Profesional profesional)
+        public async Task<IActionResult> Create([Bind("IdProfesional,Apellido,Telefono,Direccion,Matricula,Email,FechaAlta,Password,Nombre")] Profesional profesional)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace _2022_2C_I_AgendaTurnos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProfesional,Nombre,Apellido,Telefono,Direccion,FechaAlta,Email,Matricula")] Profesional profesional)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProfesional,Apellido,Telefono,Direccion,Matricula,Email,FechaAlta,Password,Nombre")] Profesional profesional)
         {
             if (id != profesional.IdProfesional)
             {

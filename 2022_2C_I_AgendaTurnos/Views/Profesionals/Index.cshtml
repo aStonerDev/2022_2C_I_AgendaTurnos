@@ -13,9 +13,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Apellido)
             </th>
             <th>
@@ -25,13 +22,19 @@
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaAlta)
+                @Html.DisplayNameFor(model => model.Matricula)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Matricula)
+                @Html.DisplayNameFor(model => model.FechaAlta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th></th>
         </tr>
@@ -39,9 +42,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Apellido)
             </td>
@@ -52,13 +52,19 @@
                 @Html.DisplayFor(modelItem => item.Direccion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaAlta)
+                @Html.DisplayFor(modelItem => item.Matricula)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Matricula)
+                @Html.DisplayFor(modelItem => item.FechaAlta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdProfesional">Edit</a> |
