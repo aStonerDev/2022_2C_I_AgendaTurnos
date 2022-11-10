@@ -16,9 +16,10 @@ namespace _2022_2C_I_AgendaTurnos
         private static void ConfigureServices(WebApplicationBuilder builder)
         {
             // builder.Services.AddDbContext<AgendaContext>(options => options.UseInMemoryDatabase("AgendaDb"));
-            builder.Services.AddDbContext<AgendaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AgendaDBCS")));
+          
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AgendaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AgendaDBCS")));
         }
 
         private static void Configure(WebApplication app)
